@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Wall
   - FlashPoint
+  - Gate1
+  - Gate2
+  - Gate3
+  - Gate4
   layers:
   - Default
   - TransparentFX
