@@ -10,34 +10,22 @@ public class Player : MonoBehaviour
     public bool invincible = false;
     public Transform flashPoint;
     public SummonerSpell SumSpell;
+    Rigidbody2D rb;
+    Vector2 movement;
 
 
     // Start is called before the first frame update
     void Start()
     {
         SumSpell.GetComponent<SummonerSpell>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += new Vector3(0, playerSpeed, 0) * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            transform.position -= new Vector3(0, playerSpeed, 0) * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += new Vector3(playerSpeed, 0, 0) * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            transform.position -= new Vector3(playerSpeed, 0, 0) * Time.deltaTime;
-        }
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKey(KeyCode.F) && SumSpell.GetComponent<SummonerSpell>().canUseSum == true)
         {
@@ -58,5 +46,9 @@ public class Player : MonoBehaviour
             }
             SumSpell.canUseSum = false;
         }
+    }
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement * playerSpeed * Time.fixedDeltaTime);
     }
 }
