@@ -12,13 +12,10 @@ public class Player : MonoBehaviour
     public SummonerSpell SumSpell;
 
 
-
-    bool hexbel = false;
     // Start is called before the first frame update
     void Start()
     {
         SumSpell.GetComponent<SummonerSpell>();
-        flashPoint = GameObject.FindObjectOfType<Transform>();
     }
 
     // Update is called once per frame
@@ -58,32 +55,8 @@ public class Player : MonoBehaviour
             }
             else if (SumSpell.usingHexBelt)
             {
-                if (Input.GetKeyDown(KeyCode.F))
-                {
-                    float distance;
-
-                    distance = Vector2.Distance(transform.position, flashPoint.transform.position);
-                    Vector2 direction = flashPoint.transform.position - transform.position;
-
-                    transform.position = Vector2.MoveTowards(this.transform.position, flashPoint.transform.position, 10 * Time.deltaTime);
-                    print("using hexbelt");
-                }
             }
             SumSpell.canUseSum = false;
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            hexbel = true;
-        }
-        if (hexbel)
-        {
-            float distance;
-
-            distance = Vector2.Distance(transform.position, flashPoint.transform.position);
-            Vector2 direction = flashPoint.transform.position - transform.position;
-
-            transform.position = Vector2.MoveTowards(this.transform.position, flashPoint.transform.position, playerSpeed * Time.deltaTime);
-            print("using hexbelt");
         }
     }
 }
