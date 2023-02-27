@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SummonerSpell test Adrian.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/testArea1.unity
+    guid: abadf7742d9152d4883c69dc8454e9ce
+  - enabled: 1
+    path: Assets/Scenes/testArea2.unity
+    guid: e594efd4112e3964dbc0c5a8760c8e71
+  - enabled: 1
+    path: Assets/Scenes/testArea3.unity
+    guid: a13a610c3b132734998e1fc3746f6a5f
+  - enabled: 1
+    path: Assets/Scenes/testArea4.unity
+    guid: 76dbe301bffc7d143be76af6b8fa7f33
+  - enabled: 1
+    path: Assets/Scenes/have ing sex.unity
+    guid: 650dfb64317b9e4418c9f8c7b3ea4d2d
   m_configObjects: {}
