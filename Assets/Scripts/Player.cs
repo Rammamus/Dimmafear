@@ -12,10 +12,13 @@ public class Player : MonoBehaviour
     public SummonerSpell SumSpell;
 
 
+
+    bool hexbel = false;
     // Start is called before the first frame update
     void Start()
     {
         SumSpell.GetComponent<SummonerSpell>();
+        flashPoint = GameObject.FindObjectOfType<Transform>();
     }
 
     // Update is called once per frame
@@ -44,17 +47,43 @@ public class Player : MonoBehaviour
             if (SumSpell.usingFlash)
             {
                 transform.position = flashPoint.position;
+                print("using flash");
             }
             else if (SumSpell.usingGhost)
             {
                 playerSpeed = 8;
                 invincible = true;
+                float timer = 0;
+                print("using ghost");
             }
             else if (SumSpell.usingHexBelt)
             {
-                //add force and whatnot
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    float distance;
+
+                    distance = Vector2.Distance(transform.position, flashPoint.transform.position);
+                    Vector2 direction = flashPoint.transform.position - transform.position;
+
+                    transform.position = Vector2.MoveTowards(this.transform.position, flashPoint.transform.position, 10 * Time.deltaTime);
+                    print("using hexbelt");
+                }
             }
             SumSpell.canUseSum = false;
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            hexbel = true;
+        }
+        if (hexbel)
+        {
+            float distance;
+
+            distance = Vector2.Distance(transform.position, flashPoint.transform.position);
+            Vector2 direction = flashPoint.transform.position - transform.position;
+
+            transform.position = Vector2.MoveTowards(this.transform.position, flashPoint.transform.position, playerSpeed * Time.deltaTime);
+            print("using hexbelt");
         }
     }
 }

@@ -71,7 +71,6 @@ public class SummonerSpell : MonoBehaviour
         if (col.CompareTag("Wall"))
         {
             colliding = true;
-            print("ow wall");
         }
     }
 
@@ -80,7 +79,6 @@ public class SummonerSpell : MonoBehaviour
         if (collision.CompareTag("Wall"))
         {
             colliding = false;
-            print("no wall");
         }
     }
 
