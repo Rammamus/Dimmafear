@@ -17,7 +17,9 @@ public class Player : MonoBehaviour
     public bool canMove = true;
 
     public bool hexbelt = false;
+    public bool ghostHappening = false;
     public float hexbeltTimerDontQuestionIt = 0;
+    public float sumDurTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -44,10 +46,23 @@ public class Player : MonoBehaviour
             }
             else if (SumSpell.usingGhost)
             {
-                playerSpeed = 8;
-                invincible = true;
-                float timer = 0;
+                SumSpell.ghostActive = true;
                 SumSpell.canUseSum = false;
+            }
+            else if (SumSpell.usingSandevistan)
+            {
+                /* none of this works and i don't know why, Input position is(NaN, NaN)???!?!?
+                Time.timeScale = 0.2f;
+                playerSpeed = playerSpeed * 5;
+                sumDurTimer += Time.deltaTime * 10;
+                if (sumDurTimer > 2.5)
+                {
+                    playerSpeed = playerSpeed / 5;
+                    Time.timeScale = 1;
+                    sumDurTimer = 0;
+                    SumSpell.canUseSum = false;
+                }
+                */
             }
             else if (SumSpell.usingHexBelt)
             {

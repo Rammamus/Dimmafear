@@ -13,9 +13,11 @@ public class SummonerSpell : MonoBehaviour
 
     public bool usingFlash;
     public bool usingGhost;
+    private float ghostTimer = 0;
     public bool ghostActive;
     public float ghostDuration = 2;
     public bool usingHexBelt;
+    public bool usingSandevistan;
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +32,12 @@ public class SummonerSpell : MonoBehaviour
         if (usingFlash)
         {
             sumSpellCD = 2;
-            if (colliding == false)
+            if (canUseSum == false)
             {
                 SummonerSpellTimer();
             }
-            else if (colliding == true)
+
+            if (colliding == true)
             {
                 canUseSum = false;
             }
@@ -48,20 +51,32 @@ public class SummonerSpell : MonoBehaviour
 
             if (ghostActive)
             {
-                float timer = 0;
-                timer += Time.deltaTime;
-                if (timer > ghostDuration)
+                player.invincible = true;
+                player.playerSpeed = 8;
+                ghostTimer += Time.deltaTime;
+                print(ghostTimer);
+                if (ghostTimer > ghostDuration)
                 {
                     player.playerSpeed = 5;
                     player.invincible = false;
                     ghostActive = false;
+                    ghostTimer = 0;
+                    print("ghost no");
                 }
             }
         }
 
+        //hexbelt
         if (usingHexBelt)
         {
             sumSpellCD = 1.5f;
+            SummonerSpellTimer();
+        }
+
+        //sandevistan
+        if (usingSandevistan)
+        {
+            sumSpellCD = 2;
             SummonerSpellTimer();
         }
     }
@@ -84,11 +99,14 @@ public class SummonerSpell : MonoBehaviour
 
     public void SummonerSpellTimer()
     {
-        sumSpellTimer += Time.deltaTime;
-        if (sumSpellTimer > sumSpellCD)
+        if (canUseSum == false)
         {
-            canUseSum = true;
-            sumSpellTimer = 0;
+            sumSpellTimer += Time.deltaTime;
+            if (sumSpellTimer > sumSpellCD)
+            {
+                canUseSum = true;
+                sumSpellTimer = 0;
+            }
         }
     }
 }

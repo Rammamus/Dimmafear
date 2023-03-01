@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 1730077646}
   - component: {fileID: 1730077645}
   - component: {fileID: 1730077649}
+  - component: {fileID: 1730077650}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Wall
@@ -444,7 +445,20 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
+--- !u!114 &1730077650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730077644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caaea90ae478cc249a57a0cc8c5678c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 0
 --- !u!1001 &4949250445980672903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -458,7 +472,7 @@ PrefabInstance:
       objectReference: {fileID: 333873281}
     - target: {fileID: 4949250444817078169, guid: 9c7cf5430dce5cb4bbb0eb6bc1d2f597, type: 3}
       propertyPath: usingHexBelt
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4949250445743334147, guid: 9c7cf5430dce5cb4bbb0eb6bc1d2f597, type: 3}
       propertyPath: m_RootOrder
