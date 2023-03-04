@@ -12,6 +12,8 @@ TagManager:
   - Gate4
   - Rooms
   - SpawnPoint
+  - Door
+  - Enemy
   layers:
   - Default
   - TransparentFX

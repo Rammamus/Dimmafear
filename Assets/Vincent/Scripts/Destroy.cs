@@ -9,6 +9,8 @@ public class Destroy : MonoBehaviour
         if (other.CompareTag("Wall"))
         {
             Destroy(other.gameObject);
+
+            print("Destroyed spare wall");
         }
     }
 }
