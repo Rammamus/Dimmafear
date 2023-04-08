@@ -23,4 +23,5 @@ public class SimpleMovement : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
 }
